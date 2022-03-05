@@ -14,4 +14,4 @@ ok 定向培训课程 第二周 第一节
 
   2.通过 metamask 向 Bank 合约转账 eth
   转账记录：https://goerli.etherscan.io/tx/0xe62821a1bb0d990e960f935df3c425c801fe1f0834cefeb1e9f11058ace42860
-  ![metamask](https://github.com/JSjump/w2-1/blob/master/imgs/1.png?raw=true)
+  ![metamask](https://github.com/JSjump/w2-1/blob/master/img/1.png?raw=true)
