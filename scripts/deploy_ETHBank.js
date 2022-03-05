@@ -19,7 +19,7 @@ async function main() {
 
   await ethBank.deployed();
 
-  console.log("Greeter deployed to:", ethBank.address);
+  console.log("ETHBank deployed to:", ethBank.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -6,9 +6,12 @@ import "hardhat/console.sol";
 contract ETHBank {
     address payable owner;
 
+    // 记录各地址转账记录
     mapping(address => uint256) balances;
 
     bool flag = false;
+
+    event Received(address indexed _from, uint256 _value);
 
     constructor() {
         owner = payable(msg.sender);
@@ -24,6 +27,11 @@ contract ETHBank {
     }
 
     // 另一种 则设置 receive fallback 函数 直接接受
+
+    // 全部提取
+    function withdrawAll() public payable noReEntrace {
+        payable(msg.sender).transfer(address(this).balance);
+    }
 
     // 取现
     function withdraw(uint256 _num) public payable noReEntrace {
@@ -82,5 +90,10 @@ contract ETHBank {
         flag = true;
         _;
         flag = false;
+    }
+
+    receive() external payable {
+        balances[msg.sender] += msg.value;
+        emit Received(msg.sender, msg.value);
     }
 }

